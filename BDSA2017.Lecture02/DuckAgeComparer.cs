@@ -7,7 +7,18 @@ namespace BDSA2017.Lecture02
     {
         public int Compare(Duck x, Duck y)
         {
-            throw new NotImplementedException();
+            if (x.Age < y.Age)
+            {
+                return -1;
+            }
+            else if (x.Age > y.Age)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
 
         public static Comparison<Duck> Comparison => throw new NotImplementedException();

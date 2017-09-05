@@ -59,5 +59,7 @@ namespace BDSA2017.Lecture02
             new Duck { Id = 8, Name = "Magica De Spell", Age = 302 },
             new Duck { Id = 9, Name = "John D. Rockerduck", Age = 55 }
         };
+
+        
     }
 }

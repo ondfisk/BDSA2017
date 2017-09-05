@@ -1,7 +1,7 @@
-﻿namespace BDSA2017.Lecture02.Lib
+﻿namespace BDSA2017.Lecture02
 {
     public interface ITrafficLightController
     {
-        bool MayIGo(string color);
+        bool MayIGo(TrafficLightColor color);
     }
 }
