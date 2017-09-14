@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BDSA2017.Lecture03
+namespace BDSA2017.Lecture03.Models
 {
     public class Repository
     {
