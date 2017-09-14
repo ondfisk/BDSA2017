@@ -1,4 +1,6 @@
-﻿namespace BDSA2017.Lecture03
+﻿using System;
+
+namespace BDSA2017.Lecture03
 {
     class Program
     {

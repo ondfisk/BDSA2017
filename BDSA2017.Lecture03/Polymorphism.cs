@@ -2,11 +2,29 @@
 
 namespace BDSA2017.Lecture03
 {
+    public static class Helper
+    {
+        public static void PrintType(string t1, string t2)
+        {
+            Console.Write(t1 + " ");
+            if (t1 == t2)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+            }
+            Console.WriteLine(t2);
+            Console.ResetColor();
+        }
+    }
+
     public abstract class Dog
     {
         public void Bark()
         {
-            Console.WriteLine(nameof(Dog) + " " + GetType().Name);
+            Helper.PrintType(nameof(Dog), GetType().Name);
         }
     }
 
@@ -14,7 +32,7 @@ namespace BDSA2017.Lecture03
     {
         public new void Bark()
         {
-            Console.WriteLine(nameof(Bulldog) + " " + GetType().Name);
+            Helper.PrintType(nameof(Bulldog), GetType().Name);
         }
     }
 
@@ -22,7 +40,7 @@ namespace BDSA2017.Lecture03
     {
         public virtual void Bark()
         {
-            Console.WriteLine(nameof(Foxhound) + " " + GetType().Name);
+            Helper.PrintType(nameof(Foxhound), GetType().Name);
         }
     }
 
@@ -30,7 +48,7 @@ namespace BDSA2017.Lecture03
     {
         public override void Bark()
         {
-            Console.WriteLine(nameof(GoodDog) + " " + GetType().Name);
+            Helper.PrintType(nameof(GoodDog), GetType().Name);
         }
     }
 
@@ -38,7 +56,7 @@ namespace BDSA2017.Lecture03
     {
         public new void Bark()
         {
-            Console.WriteLine(nameof(AnotherBadDog) + " " + GetType().Name);
+            Helper.PrintType(nameof(AnotherBadDog), GetType().Name);
         }
     }
 
@@ -46,7 +64,7 @@ namespace BDSA2017.Lecture03
     {
         public override sealed void Bark()
         {
-            Console.WriteLine(nameof(AnotherDog) + " " + GetType().Name);
+            Helper.PrintType(nameof(AnotherDog), GetType().Name);
         }
     }
 
@@ -54,7 +72,7 @@ namespace BDSA2017.Lecture03
     {
         public override sealed void Bark()
         {
-            Console.WriteLine(nameof(ReallyNotThatDog) + " " + GetType().Name);
+            Helper.PrintType(nameof(ReallyNotThatDog), GetType().Name);
         }
     }
 
@@ -62,7 +80,7 @@ namespace BDSA2017.Lecture03
     {
         public new void Bark()
         {
-            Console.WriteLine(nameof(ReallyNotThisDog) + " " + GetType().Name);
+            Helper.PrintType(nameof(ReallyNotThisDog), GetType().Name);
         }
     }
 
