@@ -1,4 +1,4 @@
-﻿namespace BDSA2017.Lecture03.Models
+﻿namespace BDSA2017.Lecture03
 {
     public enum Gender
     {
