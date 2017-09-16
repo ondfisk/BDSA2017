@@ -1,0 +1,6 @@
+SELECT 
+	a.[Name] AS Actor
+   ,c.[Name] AS Character
+FROM
+	Characters AS c
+	LEFT JOIN Actors AS a ON c.ActorId = a.Id
