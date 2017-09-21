@@ -7,5 +7,6 @@
         public string Name { get; set; }
         public string Species { get; set; }
         public string Planet { get; set; }
+        public Actor Actor { get; set; }
     }
 }
