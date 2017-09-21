@@ -1,4 +1,4 @@
-﻿namespace BDSA2017.Lecture04.Futurama
+﻿namespace BDSA2017.Lecture04
 {
     public class Character
     {
