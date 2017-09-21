@@ -1,0 +1,30 @@
+Install-Package System.Data.SqlClient
+
+SELECT 
+    a.[Name] AS Actor
+   ,c.[Name] AS Character
+FROM
+    Characters AS c
+    LEFT JOIN Actors AS a ON c.ActorId = a.Id
+
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+
+Install-Package Microsoft.EntityFrameworkCore.Tools
+Install-Package Microsoft.EntityFrameworkCore.Design
+
+Scaffold-DbContext -Connection "Server=(localdb)\MSSQLLocalDB;Database=Futurama;Trusted_Connection=True;MultipleActiveResultSets=true" -Provider Microsoft.EntityFrameworkCore.SqlServer -DataAnnotations 
+
+var optionsBuilder = new DbContextOptionsBuilder<FuturamaContext>();
+options.UseSqlServer("Server=(localdb)\MSSQLLocalDB;Database=Futurama;Trusted_Connection=True;MultipleActiveResultSets=true");
+var context = new FuturamaContext(options.Options);
+
+
+    public class FuturamaContext : DbContext
+    {
+        public FuturamaContext(DbContextOptions<FuturamaContext> options) : base(options)
+        {
+        }
+
+        public DbSet<Actor> Actors { get; set; }
+        public DbSet<Character> Characters { get; set; }
+    }
