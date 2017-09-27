@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BDSA2017.Lecture01", "BDSA2017.Lecture01\BDSA2017.Lecture01.csproj", "{B1840B51-0502-4B8F-8DE7-120D44206198}"
 EndProject
@@ -18,6 +18,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BDSA2017.Lecture04", "BDSA2017.Lecture04\BDSA2017.Lecture04.csproj", "{38BD4C8E-598F-40E3-BA79-E2AC3C2BF01E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BDSA2017.Lecture04.Tests", "BDSA2017.Lecture04.Tests\BDSA2017.Lecture04.Tests.csproj", "{692890C6-5B88-4AB5-AB8F-EA36B3354CE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDSA2017.Lecture05", "BDSA2017.Lecture05\BDSA2017.Lecture05.csproj", "{4FFBFB86-4FCD-46B5-92BB-1E85206E4210}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDSA2017.Lecture05.Tests", "BDSA2017.Lecture05.Tests\BDSA2017.Lecture05.Tests.csproj", "{289A3B25-91CF-45CA-BF88-CF944189D056}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,14 @@ Global
 		{692890C6-5B88-4AB5-AB8F-EA36B3354CE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{692890C6-5B88-4AB5-AB8F-EA36B3354CE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{692890C6-5B88-4AB5-AB8F-EA36B3354CE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FFBFB86-4FCD-46B5-92BB-1E85206E4210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FFBFB86-4FCD-46B5-92BB-1E85206E4210}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FFBFB86-4FCD-46B5-92BB-1E85206E4210}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FFBFB86-4FCD-46B5-92BB-1E85206E4210}.Release|Any CPU.Build.0 = Release|Any CPU
+		{289A3B25-91CF-45CA-BF88-CF944189D056}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{289A3B25-91CF-45CA-BF88-CF944189D056}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{289A3B25-91CF-45CA-BF88-CF944189D056}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{289A3B25-91CF-45CA-BF88-CF944189D056}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
