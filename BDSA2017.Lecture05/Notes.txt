@@ -1,0 +1,12 @@
+var builder = new DbContextOptionsBuilder<FuturamaContext>()
+                  .UseInMemoryDatabase(databaseName: nameof(<testmethod>));
+
+var connection = new SqliteConnection("DataSource=:memory:");
+connection.Open();
+
+var builder = new DbContextOptionsBuilder<FuturamaContext>()
+                  .UseSqlite(connection);
+
+var context = new FuturamaContext(builder.Options);
+context.Database.EnsureCreated();
+
