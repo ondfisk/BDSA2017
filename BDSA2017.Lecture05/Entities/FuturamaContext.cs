@@ -2,7 +2,7 @@
 
 namespace BDSA2017.Lecture05.Entities
 {
-    public class FuturamaContext : DbContext
+    public class FuturamaContext : DbContext, IFuturamaContext
     {
         public virtual DbSet<Actor> Actors { get; set; }
         public virtual DbSet<Character> Characters { get; set; }
