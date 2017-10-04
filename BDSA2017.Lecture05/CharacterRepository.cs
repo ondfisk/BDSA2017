@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using BDSA2017.Lecture05.Models;
 using BDSA2017.Lecture05.Entities;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
 
 namespace BDSA2017.Lecture05
 {

@@ -1,14 +1,12 @@
-using System;
 using Xunit;
 
-namespace BDSA2017.Lecture03.Tests
+namespace BDSA2017.Lecture06.Tests
 {
     public class UnitTest1
     {
         [Fact]
-        public void Test1()
+        public void TestMethod1()
         {
-
         }
     }
 }

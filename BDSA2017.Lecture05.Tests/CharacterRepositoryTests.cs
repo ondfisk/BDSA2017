@@ -1,5 +1,5 @@
-using BDSA2017.Lecture05.Entities;
-using BDSA2017.Lecture05.Models;
+using BDSA2017.Lecture06.Entities;
+using BDSA2017.Lecture06.Models;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Moq;
@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
-namespace BDSA2017.Lecture05.Tests
+namespace BDSA2017.Lecture06.Tests
 {
     public class CharacterRepositoryTests : IDisposable
     {
