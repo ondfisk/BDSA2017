@@ -8,14 +8,6 @@ namespace BDSA2017.Lecture06.Demos
         /// <summary>
         /// Run an open Process Explorer...
         /// </summary>
-        public static void SpawnThread()
-        {
-            Console.WriteLine("Hello Threads");
-        }
-
-        /// <summary>
-        /// Run an open Process Explorer...
-        /// </summary>
         /// <param name="number"></param>
         public static void SpawnMultipleThreads(int numberOfThreads)
         {

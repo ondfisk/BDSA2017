@@ -1,37 +1,34 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
 namespace BDSA2017.Lecture06.Demos
 {
-    public class ParallelLinq
+    public static class ParallelLinq
     {
         public static void Run()
         {
             var numbers = Enumerable.Range(1, 5000000);
 
-            var query = from n in numbers.AsParallel().AsOrdered()
+            var query = from n in numbers
                         where Enumerable.Range(2, (int) Math.Sqrt(n)).All(i => n%i > 0)
                         select n;
 
-            TimeSpan time;
+            var (primes, duration) = query.Measure();
 
-            var primes = Time(query.ToArray, out time);
-
-            Console.WriteLine("Primes: {0}, first: {1}, last: {2}", time, primes.First(), primes.Last());
+            Console.WriteLine("Primes: {0}, first: {1}, last: {2}", duration, primes.First(), primes.Last());
         }
 
-        private static T Time<T>(Func<T> action, out TimeSpan time)
+        public static (T[] result, TimeSpan duration) Measure<T>(this IEnumerable<T> action)
         {
             var stopwatch = Stopwatch.StartNew();
 
-            var result = action();
+            var result = action.ToArray();
 
             stopwatch.Stop();
 
-            time = stopwatch.Elapsed;
-
-            return result;
+            return (result, stopwatch.Elapsed);
         }
     }
 }
