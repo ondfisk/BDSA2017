@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace BDSA2017.Lecture06.Entities
 {
@@ -9,6 +11,6 @@ namespace BDSA2017.Lecture06.Entities
         DbSet<Character> Characters { get; set; }
         DbSet<EpisodeCharacter> EpisodeCharacters { get; set; }
         DbSet<Episode> Episodes { get; set; }
-        int SaveChanges();
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
     }
 }

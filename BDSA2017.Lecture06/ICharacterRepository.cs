@@ -1,19 +1,20 @@
 ﻿using BDSA2017.Lecture06.Models;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BDSA2017.Lecture06
 {
     public interface ICharacterRepository : IDisposable
     {
-        int Create(CharacterCreateUpdateDTO character);
+        Task<int> CreateAsync(CharacterCreateUpdateDTO character);
 
-        CharacterDTO Find(int characterId);
+        Task<CharacterDTO> FindAsync(int characterId);
 
-        ICollection<CharacterDTO> Read();
+        Task<ICollection<CharacterDTO>> ReadAsync();
 
-        void Update(CharacterCreateUpdateDTO character);
+        Task UpdateAsync(CharacterCreateUpdateDTO character);
 
-        bool Delete(int characterId);
+        Task<bool> DeleteAsync(int characterId);
     }
 }

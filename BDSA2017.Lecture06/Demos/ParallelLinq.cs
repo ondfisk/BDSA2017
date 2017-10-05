@@ -10,8 +10,8 @@ namespace BDSA2017.Lecture06.Demos
         public static void Run()
         {
             var numbers = Enumerable.Range(1, 5000000);
-
-            var query = from n in numbers
+            
+            var query = from n in numbers.AsParallel().AsOrdered()
                         where Enumerable.Range(2, (int) Math.Sqrt(n)).All(i => n%i > 0)
                         select n;
 

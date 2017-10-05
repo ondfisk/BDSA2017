@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace BDSA2017.Lecture06
 {
@@ -6,6 +7,8 @@ namespace BDSA2017.Lecture06
     {
         static void Main(string[] args)
         {
+            MainAsync(args).Wait();
+
             //Demos.Threads.SpawnMultipleThreads(1000);
             //Demos.Threads.Overlapping();
             //Demos.Threads.OverlappingWithArguments();
@@ -36,8 +39,14 @@ namespace BDSA2017.Lecture06
 
             //Demos.ConcurrentCollections.Race();
 
-            Console.WriteLine("Press any key to continue . . .");
-            Console.ReadKey();
+            //Console.WriteLine("Press any key to continue . . .");
+            //Console.ReadKey();
+        }
+
+        private static async Task MainAsync(string[] args)
+        {
+            await Task.Delay(TimeSpan.FromSeconds(2));
+            Console.WriteLine("Waited for a couple of seconds");
         }
     }
 }

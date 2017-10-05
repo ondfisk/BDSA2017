@@ -27,7 +27,9 @@ namespace BDSA2017.Lecture05
 
             _context.Characters.Add(entity);
 
-            return 0;
+            _context.SaveChanges();
+
+            return entity.Id;
         }
 
         public bool Delete(int characterId)
