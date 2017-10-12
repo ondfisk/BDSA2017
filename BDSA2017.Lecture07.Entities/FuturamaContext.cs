@@ -9,10 +9,6 @@ namespace BDSA2017.Lecture07.Entities
         public virtual DbSet<Episode> Episodes { get; set; }
         public virtual DbSet<EpisodeCharacter> EpisodeCharacters { get; set; }
 
-        public FuturamaContext()
-        {
-        }
-
         public FuturamaContext(DbContextOptions<FuturamaContext> options)
             : base(options)
         {

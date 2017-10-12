@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BDSA2017.Lecture01", "BDSA2017.Lecture01\BDSA2017.Lecture01.csproj", "{B1840B51-0502-4B8F-8DE7-120D44206198}"
 EndProject
@@ -29,11 +29,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BDSA2017.Lecture06.Tests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDSA2017.Lecture06.App", "BDSA2017.Lecture06.App\BDSA2017.Lecture06.App.csproj", "{3C6D0A0C-714A-4F2C-AFBC-2E2911737302}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDSA2017.Lecture07.Entities", "BDSA2017.Lecture07.Entities\BDSA2017.Lecture07.Entities.csproj", "{03807C5D-2941-40A8-B908-DC347A8CA19C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BDSA2017.Lecture07.Entities", "BDSA2017.Lecture07.Entities\BDSA2017.Lecture07.Entities.csproj", "{03807C5D-2941-40A8-B908-DC347A8CA19C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDSA2017.Lecture07.Models", "BDSA2017.Lecture07.Models\BDSA2017.Lecture07.Models.csproj", "{7FEA56B9-BAAE-46D2-9EB7-335CA1DE95FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BDSA2017.Lecture07.Models", "BDSA2017.Lecture07.Models\BDSA2017.Lecture07.Models.csproj", "{7FEA56B9-BAAE-46D2-9EB7-335CA1DE95FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDSA2017.Lecture07.Models.Tests", "BDSA2017.Lecture07.Models.Tests\BDSA2017.Lecture07.Models.Tests.csproj", "{353DAF7F-DE21-4E07-9E32-3DD66736ED88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BDSA2017.Lecture07.Models.Tests", "BDSA2017.Lecture07.Models.Tests\BDSA2017.Lecture07.Models.Tests.csproj", "{353DAF7F-DE21-4E07-9E32-3DD66736ED88}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
