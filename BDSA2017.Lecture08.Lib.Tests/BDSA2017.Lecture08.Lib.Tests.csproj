@@ -8,14 +8,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0" />
+    <PackageReference Include="moq" Version="4.7.142" />
     <PackageReference Include="xunit" Version="2.3.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.3.0" />
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BDSA2017.Lecture07.Models\BDSA2017.Lecture07.Models.csproj" />
-    <ProjectReference Include="..\BDSA2017.Lecture07.Web\BDSA2017.Lecture07.Web.csproj" />
+    <ProjectReference Include="..\BDSA2017.Lecture08.Lib\BDSA2017.Lecture08.Lib.csproj" />
   </ItemGroup>
 
 </Project>
