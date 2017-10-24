@@ -7,11 +7,11 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="bdd64bf6-e6c7-4f25-b3dd-5a3b9450e37d"
+    Name="5313747b-aff8-40ec-9ebf-a26a5f1dde7b"
     Publisher="CN=rasmusl"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="bdd64bf6-e6c7-4f25-b3dd-5a3b9450e37d" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="5313747b-aff8-40ec-9ebf-a26a5f1dde7b" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>BDSA2017.Lecture08.App</DisplayName>
