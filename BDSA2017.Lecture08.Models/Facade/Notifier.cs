@@ -3,12 +3,19 @@ using System.Collections.Generic;
 
 namespace BDSA2017.Lecture08.Models.Facade
 {
-    public class Notifier
+    public class Notifier : INotifier
     {
-        public void Notify(Article article, IEnumerable<Person> people)
+        private readonly IPeopleRepository _peopleRepository;
+
+        public Notifier(IPeopleRepository peopleRepository)
+        {
+            _peopleRepository = peopleRepository;
+        }
+
+        public void Notify(Article article)
         {
             Console.WriteLine("Notifying:");
-            foreach (var person in people)
+            foreach (var person in _peopleRepository.All())
             {
                 Console.WriteLine($"- {person.Name}");
             }

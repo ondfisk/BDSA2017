@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace BDSA2017.Lecture08.Models.Facade
 {
-    public class PeopleRepository
+    public class PeopleRepository : IPeopleRepository
     {
         static readonly ICollection<Person> _people;
 

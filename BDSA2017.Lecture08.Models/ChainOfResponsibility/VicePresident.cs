@@ -12,6 +12,7 @@ namespace BDSA2017.Lecture08.Models.ChainOfResponsibility
             }
             else if (_successor != null)
             {
+                Console.WriteLine("Can't process as VicePresident");
                 _successor.ProcessRequest(purchase);
             }
         }

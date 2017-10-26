@@ -46,13 +46,13 @@ namespace BDSA2017.Lecture08.Models.Tests.Game
         }
 
         [Fact]
-        public void Available_returns_Crossbow_Grenade_Sword()
+        public void Available_returns_all_weapons()
         {
             var factory = new WeaponFactory();
 
             var weapons = factory.Available();
 
-            Assert.Equal(new[] { "Crossbow", "Grenade", "Mace", "Sword" }, weapons);
+            Assert.Equal(new[] { "Crossbow", "Grenade", "Sword", "Wolf" }, weapons);
         }
     }
 }

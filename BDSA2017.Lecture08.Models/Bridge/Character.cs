@@ -16,5 +16,7 @@ namespace BDSA2017.Lecture08.Models.Bridge
         [Required]
         [StringLength(50)]
         public string Species { get; set; }
+
+        public override string ToString() => $"{Name} of {Species} from {Planet}";
     }
 }
