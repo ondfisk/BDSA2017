@@ -13,10 +13,12 @@ namespace BDSA2017.Lecture08.Models.Game
 
             var type = w.Assembly
                         .GetTypes()
+                        .Where(t => t.IsClass)
+                        .Where(t => w.IsAssignableFrom(t))
                         .Where(t => t.Name.Equals(name, StringComparison.OrdinalIgnoreCase))
                         .FirstOrDefault();
 
-            return type == null ? null : Activator.CreateInstance(type) as IWeapon;
+            return type == null ? null : (IWeapon) Activator.CreateInstance(type);
         }
 
         public IEnumerable<string> Available()

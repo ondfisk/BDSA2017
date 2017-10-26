@@ -4,10 +4,16 @@ namespace BDSA2017.Lecture08.Models.Facade
 {
     public class Facade
     {
-        private static readonly Notifier _notifier = new Notifier();
-        private static readonly Publisher _publisher = new Publisher();
-        private static readonly Archiver _archiver = new Archiver();
-        private static readonly PeopleRepository _peopleRepository = new PeopleRepository();
+        private readonly INotifier _notifier;
+        private readonly IPublisher _publisher;
+        private readonly IArchiver _archiver;
+
+        public Facade(INotifier notifier, IPublisher publisher, IArchiver archiver)
+        {
+            _notifier = notifier;
+            _publisher = publisher;
+            _archiver = archiver;
+        }
 
         public void Publish(Article article)
         {
@@ -17,10 +23,8 @@ namespace BDSA2017.Lecture08.Models.Facade
             Console.WriteLine("Archiving");
             _archiver.Archive(article);
 
-            var people = _peopleRepository.All();
-
             Console.WriteLine("Notifying");
-            _notifier.Notify(article, people);
+            _notifier.Notify(article);
         }
     }
 }
