@@ -4,18 +4,10 @@ namespace BDSA2017.Lecture08.Models.Facade
 {
     public class Facade
     {
-        private readonly INotifier _notifier;
-        private readonly IPublisher _publisher;
-        private readonly IArchiver _archiver;
-        private readonly IPeopleRepository _peopleRepository;
-
-        public Facade(INotifier notifier, IPublisher publisher, IArchiver archiver, IPeopleRepository peopleRepository)
-        {
-            _notifier = notifier;
-            _publisher = publisher;
-            _archiver = archiver;
-            _peopleRepository = peopleRepository;
-        }
+        private static readonly Notifier _notifier = new Notifier();
+        private static readonly Publisher _publisher = new Publisher();
+        private static readonly Archiver _archiver = new Archiver();
+        private static readonly PeopleRepository _peopleRepository = new PeopleRepository();
 
         public void Publish(Article article)
         {
