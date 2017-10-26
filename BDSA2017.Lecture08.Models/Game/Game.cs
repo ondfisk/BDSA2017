@@ -2,7 +2,7 @@
 
 namespace BDSA2017.Lecture08.Models.Game
 {
-    public class Game
+    public static class Game
     {
         public static void Run()
         {

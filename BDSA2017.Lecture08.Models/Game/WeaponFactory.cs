@@ -16,12 +16,7 @@ namespace BDSA2017.Lecture08.Models.Game
                         .Where(t => t.Name.Equals(name, StringComparison.OrdinalIgnoreCase))
                         .FirstOrDefault();
 
-            if (type == null)
-            {
-                return null;
-            }
-
-            return Activator.CreateInstance(type) as IWeapon;
+            return type == null ? null : Activator.CreateInstance(type) as IWeapon;
         }
 
         public IEnumerable<string> Available()

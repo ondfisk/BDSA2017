@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace BDSA2017.Lecture08.Models.Bridge
 {
-    public class Bridge //: IDisposable
+    public class Bridge
     {
         private readonly ICharacterRepository _repository;
 
