@@ -1,0 +1,49 @@
+﻿<Page
+    x:Class="BDSA2017.Lecture09.MVVM.Views.AlbumsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BDSA2017.Lecture09.MVVM.Views"
+    xmlns:converters="using:BDSA2017.Lecture09.MVVM.Converters" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:data="using:BDSA2017.Lecture09.MVVM.Model">
+    <Page.Resources>
+        <converters:StringFormatConverter x:Key="StringFormatConverter" />
+        <SolidColorBrush x:Key="BackgroundColor" Color="Black" />
+        <SolidColorBrush x:Key="TextColor" Color="DarkRed" />
+    </Page.Resources>
+    <Grid Background="{StaticResource BackgroundColor}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <Button Margin="25,0,50,0" Content="Back" Command="{Binding BackCommand}" Width="100" Height="50" FontSize="30" Background="DarkRed" />
+            <TextBlock Text="Albums" FontSize="50" VerticalAlignment="Center" Foreground="{StaticResource TextColor}" />
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="1">
+            <ListView x:Name="List" ItemsSource="{Binding Albums}" 
+                  SelectionMode="Single">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="20,10,20,10">
+                            <TextBlock Text="{Binding Artist}" Foreground="{StaticResource TextColor}" />
+                            <TextBlock Text="{Binding Title}" Foreground="{StaticResource TextColor}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        <StackPanel x:Name="Panel" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" DataContext="{Binding SelectedItem, ElementName=List}">
+            <TextBlock Text="{Binding Artist}" HorizontalAlignment="Center" Foreground="{StaticResource TextColor}" />
+            <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" Foreground="{StaticResource TextColor}" />
+            <TextBlock Text="{Binding Year, Converter={StaticResource StringFormatConverter}, ConverterParameter='({0})'}" HorizontalAlignment="Center" Foreground="{StaticResource TextColor}" />
+            <Image Source="{Binding Cover}" Width="500" HorizontalAlignment="Center" Margin="0,20,0,0" />
+        </StackPanel>
+    </Grid>
+</Page>
