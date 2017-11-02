@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BDSA2017.Lecture09.MVVM.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,9 +24,25 @@ namespace BDSA2017.Lecture09.MVVM.Views
     /// </summary>
     public sealed partial class ContactsPage : Page
     {
+        private readonly ContactsPageViewModel _vm;
+
         public ContactsPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
+
+            _vm = new ContactsPageViewModel
+            {
+                NewCommand = new RelayCommand(o => Frame.Navigate(typeof(CreateContactPage)))
+            };
+
+            DataContext = _vm;
+        }
+
+        private void GridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var grid = sender as GridView;
+
+            _vm.Contacts.Remove(grid.SelectedItem as ContactPageViewModel);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
