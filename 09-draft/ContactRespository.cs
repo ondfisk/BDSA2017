@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace BDSA2017.Lecture09.MVVM.Model
 {
@@ -7,13 +8,17 @@ namespace BDSA2017.Lecture09.MVVM.Model
     {
         private static readonly ICollection<Contact> _contacts = new List<Contact>();
 
-        public IEnumerable<Contact> Read()
+        public async Task<IEnumerable<Contact>> ReadAsync()
         {
+            await Task.CompletedTask;
+
             return _contacts.AsEnumerable();
         }
 
-        public void Create(Contact contact)
+        public async Task CreateAsync(Contact contact)
         {
+            await Task.CompletedTask;
+
             _contacts.Add(contact);
         }
     }

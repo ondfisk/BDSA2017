@@ -8,28 +8,28 @@ namespace BDSA2017.Lecture09.MVVM.ViewModels
         private int _id;
         public int Id
         {
-            get { return _id; }
+            get => _id; 
             set { if (_id != value) { _id = value; OnPropertyChanged(); } }
         }
 
         private string _name;
         public string Name
         {
-            get { return _name; }
+            get => _name; 
             set { if (_name != value) { _name = value; OnPropertyChanged(); } }
         }
 
         private string _email;
         public string Email
         {
-            get { return _email; }
+            get => _email;
             set { if (_email != value) { _email = value; OnPropertyChanged(); } }
         }
 
         private string _message;
         public string Message
         {
-            get { return _message; }
+            get => _message;
             set { if (_message != value) { _message = value; OnPropertyChanged(); } }
         }
 
@@ -43,9 +43,9 @@ namespace BDSA2017.Lecture09.MVVM.ViewModels
         {
             _repository = new ContactRepository();
 
-            SaveCommand = new RelayCommand(o => {
+            SaveCommand = new RelayCommand(async o => {
                 var contact = new Contact { Name = Name, Email = Email, Message = Message };
-                _repository.Create(contact);
+                await _repository.CreateAsync(contact);
                 BackCommand?.Execute(null);
             });
         }

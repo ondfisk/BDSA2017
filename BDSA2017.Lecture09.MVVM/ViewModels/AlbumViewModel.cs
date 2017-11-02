@@ -10,16 +10,18 @@ namespace BDSA2017.Lecture09.MVVM.ViewModels
 
         public ObservableCollection<Album> Albums { get; private set; }
 
-        public ICommand BackCommand { get; set; }
-
         public AlbumViewModel()
         {
             _repository = new AlbumRepository();
+
+            Initialize();
         }
 
-        public void Initialize()
+        private async void Initialize()
         {
-            Albums = new ObservableCollection<Album>(_repository.Read());
+            var albums = await _repository.ReadAsync();
+
+            Albums = new ObservableCollection<Album>(albums);
         }
     }
 }

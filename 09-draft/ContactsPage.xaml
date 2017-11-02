@@ -13,7 +13,6 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Row="0">
-            <Button Margin="25,0,50,0" Content="Back" Command="{Binding BackCommand}" Width="100" Height="50" FontSize="30" Background="DarkRed" />
             <TextBlock Text="Contacts" FontSize="50" VerticalAlignment="Center" />
             <Button Margin="25,0,50,0" Content="New" Command="{Binding NewCommand}" Width="100" Height="50" FontSize="30" Background="DarkRed" />
             <Button Margin="25,0,50,0" Content="New Dummy" Command="{Binding NewDummyCommand}" Width="200" Height="50" FontSize="30" Background="Blue" />

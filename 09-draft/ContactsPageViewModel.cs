@@ -15,17 +15,17 @@ namespace BDSA2017.Lecture09.MVVM.ViewModels
         public ContactsPageViewModel()
         {
             _repository = new ContactRepository();
-        }
 
-        public ICommand BackCommand { get; set; }
+            Initialize();
+        }
 
         public ICommand NewCommand { get; set; }
 
         public ICommand NewDummyCommand => new RelayCommand(o => Contacts.Add(new ContactPageViewModel { Id = 7, Name = Guid.NewGuid().ToString().Substring(0, 5) }));
 
-        public void Initialize()
+        private async void Initialize()
         {
-            var contacts = from c in _repository.Read()
+            var contacts = from c in await _repository.ReadAsync()
                            select new ContactPageViewModel { Id = c.Id, Name = c.Name, Email = c.Email, Message = c.Message };
 
             Contacts = new ObservableCollection<ContactPageViewModel>(contacts);

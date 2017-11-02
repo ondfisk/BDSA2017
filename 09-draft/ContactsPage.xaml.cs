@@ -6,15 +6,27 @@ using Windows.UI.Xaml.Navigation;
 
 namespace BDSA2017.Lecture09.MVVM.Views
 {
-    public sealed partial class AlbumsPage : Page
+    public sealed partial class ContactsPage : Page
     {
-        public AlbumsPage()
+        private readonly ContactsPageViewModel _vm;
+
+        public ContactsPage()
         {
             InitializeComponent();
 
-            var vm = new AlbumViewModel();
+            _vm = new ContactsPageViewModel
+            {
+                NewCommand = new RelayCommand(o => Frame.Navigate(typeof(CreateContactPage)))
+            };
 
-            DataContext = vm;
+            DataContext = _vm;
+        }
+
+        private void GridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var grid = sender as GridView;
+
+            _vm.Contacts.Remove(grid.SelectedItem as ContactPageViewModel);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

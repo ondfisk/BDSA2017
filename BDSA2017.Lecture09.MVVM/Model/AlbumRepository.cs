@@ -1,11 +1,14 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BDSA2017.Lecture09.MVVM.Model
 {
     public class AlbumRepository
     {
-        public IEnumerable<Album> Read()
+        public async Task<IEnumerable<Album>> ReadAsync()
         {
+            await Task.CompletedTask;
+
             return new[] 
             {
                 new Album { Artist = "Morbid Angel", Title = "Altars Of Madness", Year = 1989, Cover = "ms-appx:///Assets/Covers/AltarsOfMadness.jpg" },
