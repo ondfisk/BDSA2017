@@ -23,8 +23,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
-            <Button Margin="25,0,50,0" Content="Back" Command="{Binding BackCommand}" Width="100" Height="50" FontSize="30" Background="DarkRed" />
-            <TextBlock Text="Albums" FontSize="50" VerticalAlignment="Center" Foreground="{StaticResource TextColor}" />
+            <TextBlock Text="Albums" Margin="20,0,0,0" FontSize="50" VerticalAlignment="Center" Foreground="{StaticResource TextColor}" />
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="1">
             <ListView x:Name="List" ItemsSource="{Binding Albums}" 

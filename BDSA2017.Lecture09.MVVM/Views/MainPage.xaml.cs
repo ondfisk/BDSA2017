@@ -1,5 +1,8 @@
 ﻿using BDSA2017.Lecture09.MVVM.ViewModels;
+using Windows.UI.Core;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -14,11 +17,22 @@ namespace BDSA2017.Lecture09.MVVM.Views
         {
             InitializeComponent();
 
-            var vm = new MainPageViewModel();
-            vm.GoToAlbumsPageCommand = new RelayCommand(o => Frame.Navigate(typeof(AlbumsPage)));
-            vm.GoToContactsPageCommand = new RelayCommand(o => Frame.Navigate(typeof(ContactsPage)));
+            var vm = new MainPageViewModel
+            {
+                GoToAlbumsPageCommand = new RelayCommand(o => Frame.Navigate(typeof(AlbumsPage))),
+                //GoToContactsPageCommand = new RelayCommand(o => Frame.Navigate(typeof(ContactsPage)))
+            };
 
             DataContext = vm;
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var rootFrame = Window.Current.Content as Frame;
+
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = rootFrame.CanGoBack 
+                ? AppViewBackButtonVisibility.Visible 
+                : AppViewBackButtonVisibility.Collapsed;
         }
     }
 }

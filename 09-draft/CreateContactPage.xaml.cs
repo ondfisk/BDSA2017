@@ -6,13 +6,16 @@ using Windows.UI.Xaml.Navigation;
 
 namespace BDSA2017.Lecture09.MVVM.Views
 {
-    public sealed partial class AlbumsPage : Page
+    public sealed partial class CreateContactPage : Page
     {
-        public AlbumsPage()
+        public CreateContactPage()
         {
             InitializeComponent();
 
-            var vm = new AlbumViewModel();
+            var vm = new ContactPageViewModel
+            {
+                BackCommand = new RelayCommand(o => { if (Frame.CanGoBack) { Frame.GoBack(); } })
+            };
 
             DataContext = vm;
         }

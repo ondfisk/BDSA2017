@@ -13,7 +13,7 @@
     <Grid Background="{StaticResource BackgroundColor}">
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Margin="20" Content="Albums" Command="{Binding GoToAlbumsPageCommand}" Width="200" Height="100" FontSize="30" Background="{StaticResource ButtonColor}" />
-            <Button Margin="20" Content="Contacts" Command="{Binding GoToContactsPageCommand}" Width="200" Height="100" FontSize="30" Background="{StaticResource ButtonColor}" />
+            <Button Visibility="Collapsed" Margin="20" Content="Contacts" Command="{Binding GoToContactsPageCommand}" Width="200" Height="100" FontSize="30" Background="{StaticResource ButtonColor}" />
         </StackPanel>
     </Grid>
 </Page>
