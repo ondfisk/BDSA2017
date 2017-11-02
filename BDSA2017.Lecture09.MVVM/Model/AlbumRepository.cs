@@ -19,7 +19,7 @@ namespace BDSA2017.Lecture09.MVVM.Model
                 new Album { Artist = "Morbid Angel", Title = "Gateways To Annihilation", Year = 2000, Cover = "ms-appx:///Assets/Covers/GatewaysToAnnihilation.jpg" },
                 new Album { Artist = "Morbid Angel", Title = "Heretic", Year = 2003, Cover = "ms-appx:///Assets/Covers/Heretic.jpg" },
                 new Album { Artist = "Morbid Angel", Title = "Illud Divinum Insanus", Year = 2011, Cover = "ms-appx:///Assets/Covers/IlludDivinumInsanus.jpg" },
-                new Album { Artist = "Morbid Angel", Title = "Kingdoms Disdained", Year = 2017, Cover = "ms-appx:///Assets/Covers/KingdomsDisdained.jpg" }
+                new Album { Artist = "Morbid Angel", Title = "Kingdoms Disdained", Year = null, Cover = "ms-appx:///Assets/Covers/KingdomsDisdained.jpg" }
             };
         }
     }

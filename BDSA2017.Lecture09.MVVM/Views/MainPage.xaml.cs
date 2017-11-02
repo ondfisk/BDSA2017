@@ -20,7 +20,7 @@ namespace BDSA2017.Lecture09.MVVM.Views
             var vm = new MainPageViewModel
             {
                 GoToAlbumsPageCommand = new RelayCommand(o => Frame.Navigate(typeof(AlbumsPage))),
-                //GoToContactsPageCommand = new RelayCommand(o => Frame.Navigate(typeof(ContactsPage)))
+                GoToContactsPageCommand = new RelayCommand(o => Frame.Navigate(typeof(ContactsPage)))
             };
 
             DataContext = vm;

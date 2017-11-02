@@ -26,7 +26,7 @@
             <TextBlock Text="Albums" Margin="20,0,0,0" FontSize="50" VerticalAlignment="Center" Foreground="{StaticResource TextColor}" />
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="1">
-            <ListView x:Name="List" ItemsSource="{Binding Albums}" 
+            <ListView x:Name="List" ItemsSource="{Binding Albums}"
                   SelectionMode="Single">
                 <ListView.ItemTemplate>
                     <DataTemplate>
