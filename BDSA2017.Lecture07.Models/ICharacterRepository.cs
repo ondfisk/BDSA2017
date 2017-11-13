@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BDSA2017.Lecture07
+namespace BDSA2017.Lecture07.Models
 {
     public interface ICharacterRepository : IDisposable
     {
