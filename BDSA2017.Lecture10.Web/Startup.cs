@@ -8,11 +8,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using BDSA2017.Lecture07.Entities;
+using BDSA2017.Lecture10.Entities;
 using Microsoft.EntityFrameworkCore;
-using BDSA2017.Lecture07.Models;
+using BDSA2017.Lecture10.Models;
 
-namespace BDSA2017.Lecture07.Web
+namespace BDSA2017.Lecture10.Web
 {
     public class Startup
     {

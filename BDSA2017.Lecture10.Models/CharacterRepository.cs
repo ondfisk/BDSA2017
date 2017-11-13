@@ -1,10 +1,11 @@
 ﻿using System.Threading.Tasks;
-using BDSA2017.Lecture07.Models;
-using BDSA2017.Lecture07.Entities;
+using BDSA2017.Lecture10.Entities;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using BDSA2017.Lecture10.Common;
+using System.Collections.Generic;
 
-namespace BDSA2017.Lecture07.Models
+namespace BDSA2017.Lecture10.Models
 {
     public class CharacterRepository : ICharacterRepository
     {
@@ -15,7 +16,7 @@ namespace BDSA2017.Lecture07.Models
             _context = context;
         }
 
-        public async Task<int> CreateAsync(CharacterCreateUpdateDTO character)
+        public async Task<int> CreateAsync(CharacterCreateDTO character)
         {
             var entity = new Character
             {
@@ -50,22 +51,24 @@ namespace BDSA2017.Lecture07.Models
             return await characters.FirstOrDefaultAsync();
         }
 
-        public IQueryable<CharacterDTO> Read()
+        public async Task<IReadOnlyCollection<CharacterDTO>> ReadAsync()
         {
-            return from c in _context.Characters
-                   select new CharacterDTO
-                   {
-                       Id = c.Id,
-                       ActorId = c.ActorId,
-                       ActorName = c.Actor.Name,
-                       Name = c.Name,
-                       Species = c.Species,
-                       Planet = c.Planet,
-                       NumberOfEpisodes = c.Episodes.Count()
-                   };
+            var characters = from c in _context.Characters
+                             select new CharacterDTO
+                             {
+                                 Id = c.Id,
+                                 ActorId = c.ActorId,
+                                 ActorName = c.Actor.Name,
+                                 Name = c.Name,
+                                 Species = c.Species,
+                                 Planet = c.Planet,
+                                 NumberOfEpisodes = c.Episodes.Count()
+                             };
+
+            return await characters.ToListAsync();
         }
 
-        public async Task<bool> UpdateAsync(CharacterCreateUpdateDTO character)
+        public async Task<bool> UpdateAsync(CharacterUpdateDTO character)
         {
             var entity = await _context.Characters.FindAsync(character.Id);
 

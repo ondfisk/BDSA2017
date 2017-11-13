@@ -1,4 +1,6 @@
-﻿namespace BDSA2017.Lecture07.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BDSA2017.Lecture10.Common
 {
     public class CharacterDTO
     {
