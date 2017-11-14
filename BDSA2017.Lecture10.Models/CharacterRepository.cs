@@ -23,7 +23,8 @@ namespace BDSA2017.Lecture10.Models
                 ActorId = character.ActorId,
                 Name = character.Name,
                 Species = character.Species,
-                Planet = character.Planet
+                Planet = character.Planet,
+                Image = character.Image
             };
 
             _context.Characters.Add(entity);
@@ -33,11 +34,11 @@ namespace BDSA2017.Lecture10.Models
             return entity.Id;
         }
 
-        public async Task<CharacterDTO> FindAsync(int characterId)
+        public async Task<CharacterDetailsDTO> FindAsync(int characterId)
         {
             var characters = from c in _context.Characters
                              where c.Id == characterId
-                             select new CharacterDTO
+                             select new CharacterDetailsDTO
                              {
                                  Id = c.Id,
                                  ActorId = c.ActorId,
@@ -60,10 +61,7 @@ namespace BDSA2017.Lecture10.Models
                                  Id = c.Id,
                                  ActorId = c.ActorId,
                                  ActorName = c.Actor.Name,
-                                 Name = c.Name,
-                                 Species = c.Species,
-                                 Planet = c.Planet,
-                                 NumberOfEpisodes = c.Episodes.Count()
+                                 Name = c.Name
                              };
 
             return await characters.ToListAsync();
@@ -82,6 +80,7 @@ namespace BDSA2017.Lecture10.Models
             entity.Name = character.Name;
             entity.Species = character.Species;
             entity.Planet = character.Planet;
+            entity.Image = character.Image;
 
             await _context.SaveChangesAsync();
 
