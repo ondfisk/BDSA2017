@@ -7,11 +7,11 @@ using System.Collections.Generic;
 
 namespace BDSA2017.Lecture10.Models
 {
-    public class CharacterRepository : ICharacterRepository
+    public class EntityFrameworkCharacterRepository : ICharacterRepository
     {
         private readonly IFuturamaContext _context;
 
-        public CharacterRepository(IFuturamaContext context)
+        public EntityFrameworkCharacterRepository(IFuturamaContext context)
         {
             _context = context;
         }

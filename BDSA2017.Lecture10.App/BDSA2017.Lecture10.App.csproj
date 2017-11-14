@@ -96,6 +96,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\StringFormatConverter.cs" />
+    <Compile Include="Models\Extensions.cs" />
+    <Compile Include="Models\RestCharacterRepository.cs" />
     <Compile Include="Models\IoCContainer.cs" />
     <Compile Include="ViewModels\CharacterPageViewModel.cs" />
     <Compile Include="ViewModels\CharacterViewModel.cs" />
@@ -164,6 +166,9 @@
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="newtonsoft.json">
+      <Version>10.0.3</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
