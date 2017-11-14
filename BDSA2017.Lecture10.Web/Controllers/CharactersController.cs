@@ -40,6 +40,20 @@ namespace BDSA2017.Lecture10.Web.Controllers
             return Ok(character);
         }
 
+        // GET: api/characters/5/image
+        [HttpGet("{id}/image")]
+        public async Task<IActionResult> GetImage(int id)
+        {
+            var character = await _repository.FindAsync(id);
+
+            if (character?.Image == null)
+            {
+                return NotFound();
+            }
+
+            return File($"images/{character.Image}", "image/png");
+        }
+
         // POST: api/characters
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]CharacterCreateDTO character)

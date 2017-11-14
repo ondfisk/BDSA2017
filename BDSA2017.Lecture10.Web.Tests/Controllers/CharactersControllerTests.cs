@@ -52,6 +52,35 @@ namespace BDSA2017.Assignment10.Web.Tests
             Assert.Equal(character, result.Value);
         }
 
+        [Fact(DisplayName = "GetImage given existing id returns File with image")]
+        public async Task GetImage_given_existing_id_returns_File_with_image()
+        {
+            var character = new CharacterDTO { Id = 42, Image = "foo.png" };
+
+            var repository = new Mock<ICharacterRepository>();
+            repository.Setup(r => r.FindAsync(42)).ReturnsAsync(character);
+
+            var controller = new CharactersController(repository.Object);
+
+            var result = await controller.GetImage(42) as VirtualFileResult;
+
+            Assert.Equal("images/foo.png", result.FileName);
+            Assert.Equal("image/png", result.ContentType);
+        }
+
+        [Fact(DisplayName = "GetImage given non existing id returns NotFound")]
+        public async Task GetImage_given_non_existing_id_returns_NotFound()
+        {
+            var repository = new Mock<ICharacterRepository>();
+            repository.Setup(r => r.FindAsync(42)).ReturnsAsync(default(CharacterDTO));
+
+            var controller = new CharactersController(repository.Object);
+
+            var result = await controller.GetImage(42);
+
+            Assert.IsType<NotFoundResult>(result);
+        }
+
         [Fact(DisplayName = "Get given non-existing id returns NotFound")]
         public async Task Get_given_non_existing_id_returns_NotFound()
         {
