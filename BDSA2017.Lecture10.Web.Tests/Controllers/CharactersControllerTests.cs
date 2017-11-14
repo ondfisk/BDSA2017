@@ -40,7 +40,7 @@ namespace BDSA2017.Assignment10.Web.Tests
         [Fact(DisplayName = "Get given existing id returns Ok with character")]
         public async Task Get_given_existing_id_returns_Ok_with_character()
         {
-            var character = new CharacterDTO();
+            var character = new CharacterDetailsDTO();
 
             var repository = new Mock<ICharacterRepository>();
             repository.Setup(r => r.FindAsync(42)).ReturnsAsync(character);
@@ -55,7 +55,7 @@ namespace BDSA2017.Assignment10.Web.Tests
         [Fact(DisplayName = "GetImage given existing id returns File with image")]
         public async Task GetImage_given_existing_id_returns_File_with_image()
         {
-            var character = new CharacterDTO { Id = 42, Image = "foo.png" };
+            var character = new CharacterDetailsDTO { Id = 42, Image = "foo.png" };
 
             var repository = new Mock<ICharacterRepository>();
             repository.Setup(r => r.FindAsync(42)).ReturnsAsync(character);
@@ -72,7 +72,7 @@ namespace BDSA2017.Assignment10.Web.Tests
         public async Task GetImage_given_non_existing_id_returns_NotFound()
         {
             var repository = new Mock<ICharacterRepository>();
-            repository.Setup(r => r.FindAsync(42)).ReturnsAsync(default(CharacterDTO));
+            repository.Setup(r => r.FindAsync(42)).ReturnsAsync(default(CharacterDetailsDTO));
 
             var controller = new CharactersController(repository.Object);
 
@@ -85,7 +85,7 @@ namespace BDSA2017.Assignment10.Web.Tests
         public async Task Get_given_non_existing_id_returns_NotFound()
         {
             var repository = new Mock<ICharacterRepository>();
-            repository.Setup(r => r.FindAsync(42)).ReturnsAsync(default(CharacterDTO));
+            repository.Setup(r => r.FindAsync(42)).ReturnsAsync(default(CharacterDetailsDTO));
 
             var controller = new CharactersController(repository.Object);
 

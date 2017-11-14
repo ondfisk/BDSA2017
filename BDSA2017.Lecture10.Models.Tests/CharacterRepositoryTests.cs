@@ -26,7 +26,8 @@ namespace BDSA2017.Lecture10.Models.Tests
                     ActorId = 1,
                     Name = "Name",
                     Species = "Species",
-                    Planet = "Planet"
+                    Planet = "Planet",
+                    Image = "Image"
                 };
                 await repository.CreateAsync(character);
             }
@@ -35,6 +36,7 @@ namespace BDSA2017.Lecture10.Models.Tests
             Assert.Equal("Name", entity.Name);
             Assert.Equal("Species", entity.Species);
             Assert.Equal("Planet", entity.Planet);
+            Assert.Equal("Image", entity.Image);
         }
 
         [Fact]
@@ -114,6 +116,7 @@ namespace BDSA2017.Lecture10.Models.Tests
                     Name = "Name",
                     Species = "Species",
                     Planet = "Planet",
+                    Image = "Image",
                     Actor = new Actor { Name = "Actor" },
                     Episodes = new[] { new EpisodeCharacter { Episode = new Episode { Title = "Episode 1" } }, new EpisodeCharacter { Episode = new Episode { Title = "Episode 2" } } }
                 };
@@ -129,6 +132,7 @@ namespace BDSA2017.Lecture10.Models.Tests
                     Assert.Equal("Name", character.Name);
                     Assert.Equal("Species", character.Species);
                     Assert.Equal("Planet", character.Planet);
+                    Assert.Equal("Image", character.Image);
                     Assert.Equal("Actor", character.ActorName);
                     Assert.Equal(2, character.NumberOfEpisodes);
                 }
@@ -151,9 +155,7 @@ namespace BDSA2017.Lecture10.Models.Tests
             {
                 Name = "Name",
                 Species = "Species",
-                Planet = "Planet",
-                Actor = new Actor { Name = "Actor" },
-                Episodes = new[] { new EpisodeCharacter { Episode = new Episode { Title = "Episode 1" } }, new EpisodeCharacter { Episode = new Episode { Title = "Episode 2" } } }
+                Actor = new Actor { Name = "Actor" }
             };
 
             context.Characters.Add(entity);
@@ -166,15 +168,12 @@ namespace BDSA2017.Lecture10.Models.Tests
                 var character = characters.Single();
 
                 Assert.Equal("Name", character.Name);
-                Assert.Equal("Species", character.Species);
-                Assert.Equal("Planet", character.Planet);
                 Assert.Equal("Actor", character.ActorName);
-                Assert.Equal(2, character.NumberOfEpisodes);
             }
         }
 
         [Fact]
-        public async Task UpdateAsync_given_existing_character_Updates_properties()
+        public async Task Update_given_existing_character_Updates_properties()
         {
             var context = new Mock<IFuturamaContext>();
             var entity = new Character { Id = 42 };
@@ -188,7 +187,8 @@ namespace BDSA2017.Lecture10.Models.Tests
                     ActorId = 12,
                     Name = "Name",
                     Species = "Species",
-                    Planet = "Planet"
+                    Planet = "Planet",
+                    Image = "Image"
                 };
 
                 await repository.UpdateAsync(character);
@@ -198,6 +198,7 @@ namespace BDSA2017.Lecture10.Models.Tests
             Assert.Equal("Name", entity.Name);
             Assert.Equal("Species", entity.Species);
             Assert.Equal("Planet", entity.Planet);
+            Assert.Equal("Image", entity.Image);
         }
 
         [Fact]

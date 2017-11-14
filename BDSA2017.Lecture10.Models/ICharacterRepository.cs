@@ -9,7 +9,7 @@ namespace BDSA2017.Lecture10.Models
     {
         Task<int> CreateAsync(CharacterCreateDTO character);
 
-        Task<CharacterDTO> FindAsync(int characterId);
+        Task<CharacterDetailsDTO> FindAsync(int characterId);
 
         Task<IReadOnlyCollection<CharacterDTO>> ReadAsync();
 

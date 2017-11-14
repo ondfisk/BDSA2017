@@ -16,5 +16,8 @@ namespace BDSA2017.Lecture10.Common
 
         [StringLength(50)]
         public string Planet { get; set; }
+
+        [StringLength(50)]
+        public string Image { get; set; }
     }
 }
