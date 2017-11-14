@@ -43,6 +43,8 @@ namespace BDSA2017.Lecture10.Web
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
+
             app.UseMvc();
         }
     }

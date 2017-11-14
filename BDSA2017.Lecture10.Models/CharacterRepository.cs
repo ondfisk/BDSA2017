@@ -45,6 +45,7 @@ namespace BDSA2017.Lecture10.Models
                                  Name = c.Name,
                                  Species = c.Species,
                                  Planet = c.Planet,
+                                 Image = c.Image,
                                  NumberOfEpisodes = c.Episodes.Count()
                              };
 

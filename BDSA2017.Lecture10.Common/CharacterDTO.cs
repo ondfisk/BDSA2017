@@ -14,6 +14,8 @@ namespace BDSA2017.Lecture10.Common
 
         public string Planet { get; set; }
 
+        public string Image { get; set; }
+
         public string ActorName { get; set; }
 
         public int NumberOfEpisodes { get; set; }
