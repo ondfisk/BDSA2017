@@ -11,6 +11,7 @@ using Microsoft.Extensions.Options;
 using BDSA2017.Lecture10.Entities;
 using Microsoft.EntityFrameworkCore;
 using BDSA2017.Lecture10.Models;
+using BDSA2017.Lecture10.Common;
 
 namespace BDSA2017.Lecture10.Web
 {
@@ -30,7 +31,7 @@ namespace BDSA2017.Lecture10.Web
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IFuturamaContext, FuturamaContext>();
-            services.AddScoped<ICharacterRepository, CharacterRepository>();
+            services.AddScoped<ICharacterRepository, EntityFrameworkCharacterRepository>();
 
             services.AddMvc();
         }

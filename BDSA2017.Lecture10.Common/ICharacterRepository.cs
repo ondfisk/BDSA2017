@@ -1,9 +1,8 @@
-﻿using BDSA2017.Lecture10.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BDSA2017.Lecture10.Models
+namespace BDSA2017.Lecture10.Common
 {
     public interface ICharacterRepository : IDisposable
     {
