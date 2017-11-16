@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2008
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BDSA2017.Lecture01", "BDSA2017.Lecture01\BDSA2017.Lecture01.csproj", "{B1840B51-0502-4B8F-8DE7-120D44206198}"
 EndProject
@@ -71,6 +71,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDSA2017.Lecture10.App", "BDSA2017.Lecture10.App\BDSA2017.Lecture10.App.csproj", "{88DB92FD-6601-4A8F-8F70-4B89252B63DA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDSA2017.Lecture10.App.Tests", "BDSA2017.Lecture10.App.Tests\BDSA2017.Lecture10.App.Tests.csproj", "{E462C143-DB69-4640-8366-4F9BAAD52395}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notes", "Notes", "{633BE39D-A9F0-433E-80D4-9F7C14EB9C97}"
+	ProjectSection(SolutionItems) = preProject
+		Notes\Lecture10.md = Notes\Lecture10.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
