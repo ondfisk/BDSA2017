@@ -19,6 +19,7 @@ using Microsoft.AspNetCore.Rewrite;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 namespace BDSA2017.Lecture10.Web
 {
@@ -39,9 +40,15 @@ namespace BDSA2017.Lecture10.Web
                 o.LowercaseUrls = true;
             });
 
+            var policy = new AuthorizationPolicyBuilder()
+                .RequireAuthenticatedUser()
+                //.RequireRole("Admin", "SuperUser")
+                .Build();
+
             services.Configure<MvcOptions>(o =>
             {
                 o.Filters.Add(new RequireHttpsAttribute());
+                o.Filters.Add(new AuthorizeFilter(policy));
             });
 
             services.AddSwaggerGen(c =>
