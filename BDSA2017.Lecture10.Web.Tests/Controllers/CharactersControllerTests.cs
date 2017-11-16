@@ -12,16 +12,6 @@ namespace BDSA2017.Assignment10.Web.Tests
 {
     public class CharactersControllerTests
     {
-        [Fact(DisplayName = "Controller has AuthorizeAttribute")]
-        public void Controller_has_AuthorizeAttribute()
-        {
-            var type = typeof(CharactersController);
-
-            var authorizeAttribute = type.CustomAttributes.FirstOrDefault(c => c.AttributeType == typeof(AuthorizeAttribute));
-
-            Assert.NotNull(authorizeAttribute);
-        }
-
         [Fact(DisplayName = "Get returns Ok with characters")]
         public async Task Get_returns_Ok_with_characters()
         {
