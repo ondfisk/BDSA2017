@@ -12,7 +12,7 @@ namespace BDSA2017.Assignment10.Web.Tests
 {
     public class CharactersControllerTests
     {
-        [Fact(DisplayName = "Controller has AuthorizeAttribute", Skip = "Not implemented yet")]
+        [Fact(DisplayName = "Controller has AuthorizeAttribute")]
         public void Controller_has_AuthorizeAttribute()
         {
             var type = typeof(CharactersController);

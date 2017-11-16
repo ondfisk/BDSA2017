@@ -1,10 +1,7 @@
 ﻿using BDSA2017.Lecture10.Common;
-using BDSA2017.Lecture10.Entities;
-using BDSA2017.Lecture10.Models;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace BDSA2017.Lecture10.App.ViewModels
 {

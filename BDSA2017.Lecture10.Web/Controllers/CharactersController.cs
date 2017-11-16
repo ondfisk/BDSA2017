@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BDSA2017.Lecture10.Models;
 using BDSA2017.Lecture10.Common;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BDSA2017.Lecture10.Web.Controllers
 {

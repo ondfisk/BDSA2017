@@ -1,5 +1,4 @@
 ﻿using BDSA2017.Lecture10.Common;
-using BDSA2017.Lecture10.Models;
 
 namespace BDSA2017.Lecture10.App.ViewModels
 {
