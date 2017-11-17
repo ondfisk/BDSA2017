@@ -1,0 +1,21 @@
+﻿namespace BDSA2017.Lecture11.Common
+{
+    public class CharacterDetailsDTO
+    {
+        public int Id { get; set; }
+
+        public int? ActorId { get; set; }
+
+        public string Name { get; set; }
+
+        public string Species { get; set; }
+
+        public string Planet { get; set; }
+
+        public string Image { get; set; }
+
+        public string ActorName { get; set; }
+
+        public int NumberOfEpisodes { get; set; }
+    }
+}
