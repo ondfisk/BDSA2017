@@ -6,7 +6,7 @@ using BDSA2017.Lecture11.Entities;
 using Microsoft.EntityFrameworkCore;
 using BDSA2017.Lecture11.Common;
 using Swashbuckle.AspNetCore.Swagger;
-using BDSA2017.Lecture11.Web.Model;
+using BDSA2017.Lecture11.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace BDSA2017.Lecture11.Web
 {
@@ -56,43 +57,24 @@ namespace BDSA2017.Lecture11.Web
                 o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IFuturamaContext, FuturamaContext>();
-            services.AddScoped<ICharacterRepository, EntityFrameworkCharacterRepository>();
+            services.AddScoped<ICharacterRepository, CharacterRepository>();
 
             var options = new AzureAdOptions();
             Configuration.Bind("AzureAd", options);
-
-            //services.AddAuthentication(o =>
-            //{
-            //    o.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            //    o.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
-            //})
-            //.AddCookie()
-            //.AddOpenIdConnect(o =>
-            //{
-            //    o.Authority = options.Authority;
-            //    o.ClientId = options.ClientId;
-            //    o.UseTokenLifetime = true;
-            //    o.CallbackPath = options.CallbackPath;
-            //    o.TokenValidationParameters = new TokenValidationParameters
-            //    {
-            //        SaveSigninToken = true,
-            //        ValidAudience = options.Audience
-            //    };
-            //});
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(o =>
             {
                 o.Audience = options.Audience;
                 o.Authority = options.Authority;
-                o.TokenValidationParameters = new TokenValidationParameters
-                {
-                    SaveSigninToken = true,
-                    ValidAudience = options.Audience
-                };
             });
 
-            services.AddMvc();
+            services.AddMvc(config =>
+            {
+                config.RespectBrowserAcceptHeader = true;
+                config.InputFormatters.Add(new XmlSerializerInputFormatter());
+                config.OutputFormatters.Add(new XmlSerializerOutputFormatter());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

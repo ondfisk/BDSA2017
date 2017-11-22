@@ -1,6 +1,6 @@
 using BDSA2017.Lecture11.Common;
 using BDSA2017.Lecture11.Entities;
-using BDSA2017.Lecture11.Web.Model;
+using BDSA2017.Lecture11.Web.Models;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Moq;
@@ -9,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace BDSA2017.Lecture11.Web.Tests.Model
+namespace BDSA2017.Lecture11.Web.Tests.Models
 {
     public class EntityFrameworkCharacterRepositoryTests
     {
@@ -20,7 +20,7 @@ namespace BDSA2017.Lecture11.Web.Tests.Model
             var context = new Mock<IFuturamaContext>();
             context.Setup(c => c.Characters.Add(It.IsAny<Character>())).Callback<Character>(t => entity = t);
 
-            using (var repository = new EntityFrameworkCharacterRepository(context.Object))
+            using (var repository = new CharacterRepository(context.Object))
             {
                 var character = new CharacterCreateDTO
                 {
@@ -46,7 +46,7 @@ namespace BDSA2017.Lecture11.Web.Tests.Model
             var context = new Mock<IFuturamaContext>();
             context.Setup(c => c.Characters.Add(It.IsAny<Character>()));
 
-            using (var repository = new EntityFrameworkCharacterRepository(context.Object))
+            using (var repository = new CharacterRepository(context.Object))
             {
                 var character = new CharacterCreateDTO
                 {
@@ -71,7 +71,7 @@ namespace BDSA2017.Lecture11.Web.Tests.Model
                 .Returns(Task.FromResult(0))
                 .Callback(() => entity.Id = 42);
 
-            using (var repository = new EntityFrameworkCharacterRepository(context.Object))
+            using (var repository = new CharacterRepository(context.Object))
             {
                 var character = new CharacterCreateDTO
                 {
@@ -91,7 +91,7 @@ namespace BDSA2017.Lecture11.Web.Tests.Model
                               .UseInMemoryDatabase(nameof(Find_given_non_existing_id_returns_null));
 
             using (var context = new FuturamaContext(builder.Options))
-            using (var repository = new EntityFrameworkCharacterRepository(context))
+            using (var repository = new CharacterRepository(context))
             {
                 var character = await repository.FindAsync(42);
 
@@ -126,7 +126,7 @@ namespace BDSA2017.Lecture11.Web.Tests.Model
                 await context.SaveChangesAsync();
                 var id = entity.Id;
 
-                using (var repository = new EntityFrameworkCharacterRepository(context))
+                using (var repository = new CharacterRepository(context))
                 {
                     var character = await repository.FindAsync(id);
 
@@ -163,7 +163,7 @@ namespace BDSA2017.Lecture11.Web.Tests.Model
             await context.SaveChangesAsync();
             var id = entity.Id;
 
-            using (var repository = new EntityFrameworkCharacterRepository(context))
+            using (var repository = new CharacterRepository(context))
             {
                 var characters = await repository.ReadAsync();
                 var character = characters.Single();
@@ -180,7 +180,7 @@ namespace BDSA2017.Lecture11.Web.Tests.Model
             var entity = new Character { Id = 42 };
             context.Setup(c => c.Characters.FindAsync(42)).ReturnsAsync(entity);
 
-            using (var repository = new EntityFrameworkCharacterRepository(context.Object))
+            using (var repository = new CharacterRepository(context.Object))
             {
                 var character = new CharacterUpdateDTO
                 {
@@ -209,7 +209,7 @@ namespace BDSA2017.Lecture11.Web.Tests.Model
             var entity = new Character { Id = 42 };
             context.Setup(c => c.Characters.FindAsync(42)).ReturnsAsync(entity);
 
-            using (var repository = new EntityFrameworkCharacterRepository(context.Object))
+            using (var repository = new CharacterRepository(context.Object))
             {
                 var character = new CharacterUpdateDTO
                 {
@@ -231,7 +231,7 @@ namespace BDSA2017.Lecture11.Web.Tests.Model
             var entity = new Character { Id = 42 };
             context.Setup(c => c.Characters.FindAsync(42)).ReturnsAsync(entity);
 
-            using (var repository = new EntityFrameworkCharacterRepository(context.Object))
+            using (var repository = new CharacterRepository(context.Object))
             {
                 var character = new CharacterUpdateDTO
                 {
@@ -252,7 +252,7 @@ namespace BDSA2017.Lecture11.Web.Tests.Model
             var context = new Mock<IFuturamaContext>();
             context.Setup(c => c.Characters.FindAsync(42)).ReturnsAsync(default(Character));
 
-            using (var repository = new EntityFrameworkCharacterRepository(context.Object))
+            using (var repository = new CharacterRepository(context.Object))
             {
                 var character = new CharacterUpdateDTO
                 {
@@ -273,7 +273,7 @@ namespace BDSA2017.Lecture11.Web.Tests.Model
             var context = new Mock<IFuturamaContext>();
             context.Setup(c => c.Characters.FindAsync(42)).ReturnsAsync(default(Character));
 
-            using (var repository = new EntityFrameworkCharacterRepository(context.Object))
+            using (var repository = new CharacterRepository(context.Object))
             {
                 var character = new CharacterUpdateDTO
                 {
@@ -295,7 +295,7 @@ namespace BDSA2017.Lecture11.Web.Tests.Model
             var mock = new Mock<IFuturamaContext>();
             mock.Setup(m => m.Characters.FindAsync(42)).ReturnsAsync(character);
 
-            using (var repository = new EntityFrameworkCharacterRepository(mock.Object))
+            using (var repository = new CharacterRepository(mock.Object))
             {
                 await repository.DeleteAsync(42);
             }
@@ -310,7 +310,7 @@ namespace BDSA2017.Lecture11.Web.Tests.Model
             var mock = new Mock<IFuturamaContext>();
             mock.Setup(m => m.Characters.FindAsync(42)).ReturnsAsync(character);
 
-            using (var repository = new EntityFrameworkCharacterRepository(mock.Object))
+            using (var repository = new CharacterRepository(mock.Object))
             {
                 await repository.DeleteAsync(42);
             }
@@ -325,7 +325,7 @@ namespace BDSA2017.Lecture11.Web.Tests.Model
             var mock = new Mock<IFuturamaContext>();
             mock.Setup(m => m.Characters.FindAsync(42)).ReturnsAsync(default(Character));
 
-            using (var repository = new EntityFrameworkCharacterRepository(mock.Object))
+            using (var repository = new CharacterRepository(mock.Object))
             {
                 await repository.DeleteAsync(42);
             }
@@ -340,7 +340,7 @@ namespace BDSA2017.Lecture11.Web.Tests.Model
             var mock = new Mock<IFuturamaContext>();
             mock.Setup(m => m.Characters.FindAsync(42)).ReturnsAsync(default(Character));
 
-            using (var repository = new EntityFrameworkCharacterRepository(mock.Object))
+            using (var repository = new CharacterRepository(mock.Object))
             {
                 await repository.DeleteAsync(42);
             }
@@ -353,7 +353,7 @@ namespace BDSA2017.Lecture11.Web.Tests.Model
         {
             var mock = new Mock<IFuturamaContext>();
 
-            using (var repository = new EntityFrameworkCharacterRepository(mock.Object))
+            using (var repository = new CharacterRepository(mock.Object))
             {
             }
 

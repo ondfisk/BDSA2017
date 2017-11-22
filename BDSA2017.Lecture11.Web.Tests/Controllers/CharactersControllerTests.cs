@@ -1,11 +1,12 @@
 using BDSA2017.Lecture11.Common;
 using BDSA2017.Lecture11.Web.Controllers;
+using BDSA2017.Lecture11.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace BDSA2017.Assignment10.Web.Tests
+namespace BDSA2017.Lecture11.Web.Tests
 {
     public class CharactersControllerTests
     {

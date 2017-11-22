@@ -2,7 +2,7 @@
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Linq;
 
-namespace BDSA2017.Lecture11.Web.Model
+namespace BDSA2017.Lecture11.Web.Models
 {
     public class LowerCaseDocumentFilter : IDocumentFilter
     {

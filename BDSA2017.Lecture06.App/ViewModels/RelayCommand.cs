@@ -5,8 +5,6 @@ namespace BDSA2017.Lecture06.App.ViewModels
 {
     public class RelayCommand : ICommand
     {
-        public event EventHandler CanExecuteChanged;
-
         private readonly Action<object> _execute;
 
         private readonly Predicate<object> _canExecute;
@@ -20,6 +18,13 @@ namespace BDSA2017.Lecture06.App.ViewModels
         public bool CanExecute(object parameter)
         {
             return _canExecute == null ? true : _canExecute(parameter);
+        }
+
+        public event EventHandler CanExecuteChanged;
+
+        public void OnCanExecuteChanged(object sender)
+        {
+            CanExecuteChanged?.Invoke(sender, EventArgs.Empty);
         }
 
         public void Execute(object parameter)

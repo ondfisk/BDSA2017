@@ -35,7 +35,7 @@ namespace BDSA2017.Lecture11.App.Views
 
             var character = e.Parameter as CharacterViewModel;
 
-            _vm.Initialize(character);
+            await _vm.Initialize(character);
         }
     }
 }

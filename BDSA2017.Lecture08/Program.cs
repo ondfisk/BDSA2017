@@ -39,7 +39,6 @@ namespace BDSA2017.Lecture08
             //ChainOfResponsibility.Run();
 
             //Strategy.Run();
-            var connectionString = "";
 
             var bridge = provider.GetService<Bridge>();
 
