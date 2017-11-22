@@ -24,7 +24,7 @@
         <StackPanel Grid.Row="1" Grid.Column="0" Margin="25">
             <TextBlock Text="{Binding Species, Converter={StaticResource StringFormatConverter}, ConverterParameter='Species: {0}'}" FontSize="30" />
             <TextBlock Text="{Binding Planet, Converter={StaticResource StringFormatConverter}, ConverterParameter='Planet: {0}'}" FontSize="30" />
-            <TextBlock Text="{Binding ActorName, Converter={StaticResource StringFormatConverter}, ConverterParameter='Actor: {0}'}" FontSize="30" />
+            <TextBlock Text="{Binding ActorName, Converter={StaticResource StringFormatConverter}, ConverterParameter='Voiced by: {0}'}" FontSize="30" />
         </StackPanel>
         <Image Grid.Row="1" Grid.Column="1" Margin="25" Source="{Binding Image}" />
     </Grid>

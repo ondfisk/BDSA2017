@@ -3,6 +3,7 @@ using BDSA2017.Lecture11.App.Views;
 using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -22,8 +23,8 @@ namespace BDSA2017.Lecture11.App
         /// </summary>
         public App()
         {
-            this.InitializeComponent();
-            this.Suspending += OnSuspending;
+            InitializeComponent();
+            Suspending += OnSuspending;
         }
 
         /// <summary>
@@ -52,6 +53,8 @@ namespace BDSA2017.Lecture11.App
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
             }
+
+            SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
 
             if (e.PrelaunchActivated == false)
             {
@@ -89,6 +92,17 @@ namespace BDSA2017.Lecture11.App
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
             deferral.Complete();
+        }
+
+        private void OnBackRequested(object sender, BackRequestedEventArgs e)
+        {
+            var rootFrame = Window.Current.Content as Frame;
+
+            if (rootFrame.CanGoBack)
+            {
+                e.Handled = true;
+                rootFrame.GoBack();
+            }
         }
     }
 }

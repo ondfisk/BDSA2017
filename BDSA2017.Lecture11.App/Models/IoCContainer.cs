@@ -14,13 +14,14 @@ namespace BDSA2017.Lecture11.App.Models
         {
             IServiceCollection services = new ServiceCollection();
 
-            services.AddScoped<ICharacterRepository, RestCharacterRepository>();
+            services.AddScoped<ICharacterRepository, CharacterRepository>();
             services.AddScoped<ISettings, Settings>();
             services.AddScoped<MainPageViewModel>();
             services.AddScoped<CharacterPageViewModel>();
             services.AddScoped<ISettings, Settings>();
             services.AddScoped<DelegatingHandler, AuthorizedHandler>();
             services.AddScoped<IAuthenticationHelper, AuthenticationHelper>();
+            services.AddScoped<INavigationService, NavigationService>();
 
             return services.BuildServiceProvider();
         }

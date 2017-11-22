@@ -5,6 +5,8 @@
     xmlns:local="using:BDSA2017.Lecture11.App"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity" 
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -17,7 +19,13 @@
             <ColumnDefinition Width="200" />
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="0" Grid.Column="0" Margin="25" Text="Characters" FontSize="40" VerticalAlignment="Center" />
-        <GridView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" SelectionMode="Single" ItemsSource="{Binding Characters}" SelectionChanged="GridView_SelectionChanged">
+        <Button Command="{Binding SignInOutCommand}" Grid.Row="0" Grid.Column="1" Content="Sign in/out" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <GridView x:Name="CharactersGrid" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" SelectionMode="Single" ItemsSource="{Binding Characters}">
+            <interactivity:Interaction.Behaviors>
+                <core:EventTriggerBehavior EventName="SelectionChanged">
+                    <core:InvokeCommandAction Command="{Binding DetailsPageCommand}" CommandParameter="{Binding SelectedItem, ElementName=CharactersGrid}" />
+                </core:EventTriggerBehavior>
+            </interactivity:Interaction.Behaviors>
             <GridView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="25" Width="300">

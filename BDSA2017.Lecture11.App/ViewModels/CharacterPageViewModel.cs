@@ -1,5 +1,10 @@
 ﻿using BDSA2017.Lecture11.Common;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using Windows.Storage.Streams;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
+using System;
 
 namespace BDSA2017.Lecture11.App.ViewModels
 {
@@ -25,8 +30,11 @@ namespace BDSA2017.Lecture11.App.ViewModels
         private string _planet;
         public string Planet { get => _planet; set { if (value != _planet) { _planet = value; OnPropertyChanged(); } } }
 
-        private string _image;
-        public string Image { get => _image; set { if (value != _image) { _image = value; OnPropertyChanged(); } } }
+        private byte[] _imageBytes;
+        public byte[] ImageBytes { get { return _imageBytes; } set { if (_imageBytes != value) { _imageBytes = value; OnPropertyChanged(); LoadImage(); } } }
+
+        private ImageSource _image;
+        public ImageSource Image { get { return _image; } set { if (_image != value) { _image = value; OnPropertyChanged(); } } }
 
         private int _numberOfEpisodes;
         public int NumberOfEpisodes { get => _numberOfEpisodes; set { if (value != _numberOfEpisodes) { _numberOfEpisodes = value; OnPropertyChanged(); } } }
@@ -36,7 +44,7 @@ namespace BDSA2017.Lecture11.App.ViewModels
             _repository = repository;
         }
 
-        public async void Initialize(CharacterViewModel character)
+        public async Task Initialize(CharacterViewModel character)
         {
             Id = character.Id;
             ActorId = character.ActorId;
@@ -47,8 +55,25 @@ namespace BDSA2017.Lecture11.App.ViewModels
 
             Species = details.Species;
             Planet = details.Planet;
-            Image = details.Image;
             NumberOfEpisodes = details.NumberOfEpisodes;
+
+            ImageBytes = await _repository.FindImageAsync(character.Id);
+        }
+
+        private async void LoadImage()
+        {
+            if (ImageBytes == null)
+            {
+                Image = null;
+            }
+            var image = new BitmapImage();
+            using (var stream = new InMemoryRandomAccessStream())
+            {
+                await stream.WriteAsync(ImageBytes.AsBuffer());
+                stream.Seek(0);
+                await image.SetSourceAsync(stream);
+            }
+            Image = image;
         }
     }
 }

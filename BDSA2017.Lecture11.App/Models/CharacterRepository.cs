@@ -8,11 +8,11 @@ using System.Linq;
 
 namespace BDSA2017.Lecture11.App.Models
 {
-    public class RestCharacterRepository : ICharacterRepository
+    public class CharacterRepository : ICharacterRepository
     {
         private readonly HttpClient _client;
 
-        public RestCharacterRepository(ISettings settings, DelegatingHandler handler)
+        public CharacterRepository(ISettings settings, DelegatingHandler handler)
         {
             var client = new HttpClient(handler)
             {
@@ -24,17 +24,16 @@ namespace BDSA2017.Lecture11.App.Models
             _client = client;
         }
 
-        public async Task<int> CreateAsync(CharacterCreateDTO character)
+        public async Task<string> CreateAsync(CharacterCreateDTO character)
         {
             var response = await _client.PostAsync("api/characters", character.ToHttpContent());
 
             if (response.IsSuccessStatusCode)
             {
-                var location = response.Headers.GetValues("Location").First();
-                return int.Parse(location.Split('/').Last());
+                return response.Headers.GetValues("Location").First();
             }
 
-            return -1;
+            return null;
         }
 
         public async Task<bool> DeleteAsync(int characterId)
@@ -60,6 +59,21 @@ namespace BDSA2017.Lecture11.App.Models
             return null;
         }
 
+        public async Task<byte[]> FindImageAsync(int characterId)
+        {
+            var request = new HttpRequestMessage(HttpMethod.Get, $"api/characters/{characterId}/image");
+            request.Headers.Accept.Clear();
+            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("image/png"));
+            var response = await _client.SendAsync(request);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadAsByteArrayAsync();
+            }
+
+            return null;
+        }
+
         public async Task<IReadOnlyCollection<CharacterDTO>> ReadAsync()
         {
             var response = await _client.GetAsync("api/characters");
@@ -69,7 +83,7 @@ namespace BDSA2017.Lecture11.App.Models
                 return await response.Content.To<IReadOnlyCollection<CharacterDTO>>();
             }
 
-            return null;
+            return new List<CharacterDTO>().AsReadOnly();
         }
 
         public async Task<bool> UpdateAsync(CharacterUpdateDTO character)

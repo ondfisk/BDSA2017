@@ -39,7 +39,6 @@ namespace BDSA2017.Lecture08
             //ChainOfResponsibility.Run();
 
             //Strategy.Run();
-            var connectionString = @"Server=tcp:ondfisk.database.windows.net,1433;Initial Catalog=Futurama;Persist Security Info=False;User ID=ondfisk;Password=BDSA2017!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
             var bridge = provider.GetService<Bridge>();
 

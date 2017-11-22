@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore;
 using BDSA2017.Lecture11.Common;
 using System.Collections.Generic;
 
-namespace BDSA2017.Lecture11.Web.Model
+namespace BDSA2017.Lecture11.Web.Models
 {
-    public class EntityFrameworkCharacterRepository : ICharacterRepository
+    public class CharacterRepository : ICharacterRepository
     {
         private readonly IFuturamaContext _context;
 
-        public EntityFrameworkCharacterRepository(IFuturamaContext context)
+        public CharacterRepository(IFuturamaContext context)
         {
             _context = context;
         }

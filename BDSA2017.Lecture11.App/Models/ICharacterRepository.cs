@@ -6,9 +6,11 @@ namespace BDSA2017.Lecture11.Common
 {
     public interface ICharacterRepository : IDisposable
     {
-        Task<int> CreateAsync(CharacterCreateDTO character);
+        Task<string> CreateAsync(CharacterCreateDTO character);
 
         Task<CharacterDetailsDTO> FindAsync(int characterId);
+
+        Task<byte[]> FindImageAsync(int characterId);
 
         Task<IReadOnlyCollection<CharacterDTO>> ReadAsync();
 
