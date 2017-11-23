@@ -102,10 +102,10 @@ namespace BDSA2017.Lecture11.Web
             app.UseAuthentication();
 
             // Enable CORS - you probably want to limit this to known origins.
-            //app.UseCors(builder =>
-            //     builder.AllowAnyOrigin()
-            //            .AllowAnyHeader()
-            //            .AllowAnyMethod());
+            app.UseCors(builder =>
+                 builder.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod());
 
             app.UseStaticFiles();
 

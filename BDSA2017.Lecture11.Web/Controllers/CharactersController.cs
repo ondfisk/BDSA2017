@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using BDSA2017.Lecture11.Common;
 using BDSA2017.Lecture11.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BDSA2017.Lecture11.Web.Controllers
 {

@@ -3,7 +3,6 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
-using Windows.Security.Authentication.Web.Core;
 
 namespace BDSA2017.Lecture11.App.Models
 {
