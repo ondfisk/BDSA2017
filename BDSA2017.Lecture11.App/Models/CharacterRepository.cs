@@ -27,7 +27,7 @@ namespace BDSA2017.Lecture11.App.Models
         public async Task<string> CreateAsync(CharacterCreateDTO character)
         {
             var response = await _client.PostAsync("api/characters", character.ToHttpContent());
-
+            
             if (response.IsSuccessStatusCode)
             {
                 return response.Headers.GetValues("Location").First();

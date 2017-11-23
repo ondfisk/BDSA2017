@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using System.Threading.Tasks;
 using Xunit;
+using System.Collections.Generic;
 
 namespace BDSA2017.Lecture11.Web.Tests
 {
