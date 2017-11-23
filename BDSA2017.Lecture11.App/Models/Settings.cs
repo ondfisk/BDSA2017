@@ -16,7 +16,7 @@ namespace BDSA2017.Lecture11.App.Models
 
         public string WebAccountProviderId => "https://login.microsoft.com";
 
-        public string ApiResourceId => "https://ondfisk.onmicrosoft.com/BDSA2017.Lecture11.Web";
+        public string ApiResource => "https://ondfisk.onmicrosoft.com/BDSA2017.Lecture11.Web";
 
         public Uri ApiBaseAddress => new Uri("https://bdsa2017.azurewebsites.net/");
 
