@@ -103,15 +103,5 @@ namespace BDSA2017.Lecture11.Web.Controllers
 
             return NoContent();
         }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                _repository.Dispose();
-            }
-
-            base.Dispose(disposing);
-        }
     }
 }

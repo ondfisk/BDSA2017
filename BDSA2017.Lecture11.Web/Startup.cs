@@ -65,8 +65,13 @@ namespace BDSA2017.Lecture11.Web
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(o =>
             {
-                o.Audience = options.Audience;
+                //o.Audience = options.Audience;
                 o.Authority = options.Authority;
+                o.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateAudience = true,
+                    ValidAudiences = new[] { options.ClientId, options.Audience }
+                };
             });
 
             services.AddMvc(config =>
@@ -95,6 +100,12 @@ namespace BDSA2017.Lecture11.Web
             });
 
             app.UseAuthentication();
+
+            // Enable CORS - you probably want to limit this to known origins.
+            //app.UseCors(builder =>
+            //     builder.AllowAnyOrigin()
+            //            .AllowAnyHeader()
+            //            .AllowAnyMethod());
 
             app.UseStaticFiles();
 

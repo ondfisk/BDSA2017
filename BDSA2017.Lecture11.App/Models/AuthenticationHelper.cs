@@ -22,7 +22,7 @@ namespace BDSA2017.Lecture11.App.Models
             var webAccountProvider = await WebAuthenticationCoreManager.FindAccountProviderAsync(_settings.WebAccountProviderId, _settings.Authority);
 
             var webTokenRequest = new WebTokenRequest(webAccountProvider, string.Empty, _settings.ClientId);
-            webTokenRequest.Properties.Add("resource", _settings.ApiResourceId);
+            webTokenRequest.Properties.Add("resource", _settings.ApiResource);
 
             var account = default(WebAccount);
 
@@ -56,7 +56,7 @@ namespace BDSA2017.Lecture11.App.Models
             {
                 // There is no recorded user. Let's start a sign in flow without imposing a specific account.                             
                 webTokenRequest = new WebTokenRequest(webAccountProvider, string.Empty, _settings.ClientId, WebTokenRequestPromptType.ForceAuthentication);
-                webTokenRequest.Properties.Add("resource", _settings.ApiResourceId);
+                webTokenRequest.Properties.Add("resource", _settings.ApiResource);
                 var webTokenRequestResult = await WebAuthenticationCoreManager.RequestTokenAsync(webTokenRequest);
                 if (webTokenRequestResult.ResponseStatus == WebTokenRequestStatus.Success)
                 {
@@ -96,7 +96,7 @@ namespace BDSA2017.Lecture11.App.Models
             var userId = _appSettings.Values["userId"];
             var userAccount = await WebAuthenticationCoreManager.FindAccountAsync(webAccountProvider, (string)userId);
             var webTokenRequest = new WebTokenRequest(webAccountProvider, string.Empty, _settings.ClientId);
-            webTokenRequest.Properties.Add("resource", _settings.ApiResourceId);
+            webTokenRequest.Properties.Add("resource", _settings.ApiResource);
             var webTokenRequestResult = await WebAuthenticationCoreManager.GetTokenSilentlyAsync(webTokenRequest, userAccount);
             if (webTokenRequestResult.ResponseStatus == WebTokenRequestStatus.Success)
             {

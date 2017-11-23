@@ -5,7 +5,7 @@ namespace BDSA2017.Lecture11.App.Models
     public interface ISettings
     {
         Uri ApiBaseAddress { get; }
-        string ApiResourceId { get; }
+        string ApiResource { get; }
         string Authority { get; }
         string ClientId { get; }
         string Instance { get; }
