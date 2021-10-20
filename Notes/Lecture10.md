@@ -25,7 +25,7 @@ public class Startup
         });
     }
 
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
         app.UseSwagger();
 
@@ -70,7 +70,7 @@ public class Startup
         });
     }
 
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
         var options = new RewriteOptions().AddRedirectToHttps();
         app.UseRewriter(options);
@@ -180,7 +180,7 @@ public class Startup
         services.AddMvc();
     }
 
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
         app.UseAuthentication();
     }

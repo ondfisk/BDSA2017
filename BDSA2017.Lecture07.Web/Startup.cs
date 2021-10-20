@@ -11,6 +11,7 @@ using Microsoft.Extensions.Options;
 using BDSA2017.Lecture07.Entities;
 using Microsoft.EntityFrameworkCore;
 using BDSA2017.Lecture07.Models;
+using Microsoft.Extensions.Hosting;
 
 namespace BDSA2017.Lecture07.Web
 {
@@ -36,14 +37,12 @@ namespace BDSA2017.Lecture07.Web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseMvc();
         }
     }
 }

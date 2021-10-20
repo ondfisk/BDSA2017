@@ -1,25 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using BDSA2017.Lecture10.Entities;
 using Microsoft.EntityFrameworkCore;
 using BDSA2017.Lecture10.Models;
 using BDSA2017.Lecture10.Common;
-using Swashbuckle.AspNetCore.Swagger;
 using BDSA2017.Lecture10.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.Extensions.Hosting;
 
 namespace BDSA2017.Lecture10.Web
 {
@@ -53,7 +48,7 @@ namespace BDSA2017.Lecture10.Web
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
                 c.DocumentFilter<LowerCaseDocumentFilter>();
             });
             
@@ -89,7 +84,7 @@ namespace BDSA2017.Lecture10.Web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -108,8 +103,6 @@ namespace BDSA2017.Lecture10.Web
             app.UseAuthentication();
 
             app.UseStaticFiles();
-
-            app.UseMvc();
         }
     }
 }

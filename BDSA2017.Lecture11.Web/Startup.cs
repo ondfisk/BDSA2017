@@ -4,18 +4,16 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using BDSA2017.Lecture11.Entities;
 using Microsoft.EntityFrameworkCore;
-using BDSA2017.Lecture11.Common;
-using Swashbuckle.AspNetCore.Swagger;
 using BDSA2017.Lecture11.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Rewrite;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.OpenApi.Models;
+using Microsoft.Extensions.Hosting;
 
 namespace BDSA2017.Lecture11.Web
 {
@@ -49,7 +47,7 @@ namespace BDSA2017.Lecture11.Web
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
                 c.DocumentFilter<LowerCaseDocumentFilter>();
             });
             
@@ -77,13 +75,13 @@ namespace BDSA2017.Lecture11.Web
             services.AddMvc(config =>
             {
                 config.RespectBrowserAcceptHeader = true;
-                config.InputFormatters.Add(new XmlSerializerInputFormatter());
+                config.InputFormatters.Add(new XmlSerializerInputFormatter(new MvcOptions()));
                 config.OutputFormatters.Add(new XmlSerializerOutputFormatter());
             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -108,8 +106,6 @@ namespace BDSA2017.Lecture11.Web
                         .AllowAnyMethod());
 
             app.UseStaticFiles();
-
-            app.UseMvc();
         }
     }
 }
